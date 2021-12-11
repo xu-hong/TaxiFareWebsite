@@ -3,6 +3,9 @@ import streamlit as st
 
 import datetime
 
+import pandas as pd
+import numpy as np
+
 import requests
 
 '''
@@ -39,3 +42,10 @@ prediction = response.json()
 pred = prediction['prediction']
 
 st.write(f"Prediction on {pickup_datetime} is {pred}")
+
+
+df = pd.DataFrame(
+     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+     columns=['lat', 'lon'])
+
+st.map(df)
